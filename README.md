@@ -26,10 +26,17 @@ The output gives leadership a clear picture of where the codebase is now, what t
 ### Option 1 — Global install (recommended)
 One command. Works in every project you open, forever.
 
+**macOS / Linux**
 ```bash
 mkdir -p ~/.claude/commands
 curl -o ~/.claude/commands/code-health-risk.md \
   https://raw.githubusercontent.com/dev4x-ai/code-health-risk-report/main/command.md
+```
+
+**Windows (PowerShell)**
+```powershell
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\commands"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/dev4x-ai/code-health-risk-report/main/command.md" -OutFile "$env:USERPROFILE\.claude\commands\code-health-risk.md"
 ```
 
 Then in any project:
@@ -40,10 +47,19 @@ Then in any project:
 ### Option 2 — Team install
 One person sets it up. Every developer on the team gets it automatically.
 
+**macOS / Linux**
 ```bash
 mkdir -p .claude/commands
 curl -o .claude/commands/code-health-risk.md \
   https://raw.githubusercontent.com/dev4x-ai/code-health-risk-report/main/command.md
+git add .claude/commands/code-health-risk.md
+git commit -m "Add Dev4x code health risk command"
+```
+
+**Windows (PowerShell)**
+```powershell
+New-Item -ItemType Directory -Force ".claude\commands"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/dev4x-ai/code-health-risk-report/main/command.md" -OutFile ".claude\commands\code-health-risk.md"
 git add .claude/commands/code-health-risk.md
 git commit -m "Add Dev4x code health risk command"
 ```
