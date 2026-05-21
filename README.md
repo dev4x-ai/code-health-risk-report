@@ -15,19 +15,48 @@ You already know what the problems are. The hard part is communicating them to p
 **Report audience — Engineering Manager / CTO**
 The output gives leadership a clear picture of where the codebase is now, what the business consequences of inaction are, and what decisions they need to make. No technical jargon. No scores to interpret. Just clear findings and a recommended order of action.
 
+## Prerequisites
+
+- [Claude Code](https://claude.ai/code) installed
+- A Claude subscription (Pro, Max, or API key)
+- Your project open in a terminal
+
 ## How To Use
 
-### Option 1 — Direct paste
-1. Open Claude Code in your project root
-2. Copy contents of command.md
-3. Paste into Claude Code
-4. Report generates in 60 seconds
+### Option 1 — Global install (recommended)
+One command. Works in every project you open, forever.
 
-### Option 2 — Slash command
-1. Copy command.md to:
-   `.claude/commands/code-health-risk.md`
-2. Open Claude Code in your project
-3. Type: `/code-health-risk`
+```bash
+mkdir -p ~/.claude/commands
+curl -o ~/.claude/commands/code-health-risk.md \
+  https://raw.githubusercontent.com/dev4x-ai/code-health-risk-report/main/command.md
+```
+
+Then in any project:
+1. Open Claude Code: `claude`
+2. Type: `/code-health-risk`
+3. Report ready in 60 seconds
+
+### Option 2 — Team install
+One person sets it up. Every developer on the team gets it automatically.
+
+```bash
+mkdir -p .claude/commands
+curl -o .claude/commands/code-health-risk.md \
+  https://raw.githubusercontent.com/dev4x-ai/code-health-risk-report/main/command.md
+git add .claude/commands/code-health-risk.md
+git commit -m "Add Dev4x code health risk command"
+```
+
+Then anyone on the team:
+1. Opens Claude Code: `claude`
+2. Types: `/code-health-risk`
+3. Report ready in 60 seconds
+
+### Option 3 — No setup
+1. Open [command.md](command.md) → click **Raw** → copy everything
+2. Open Claude Code in your project: `claude`
+3. Paste and run
 4. Report ready in 60 seconds
 
 ## What You Get
@@ -38,7 +67,6 @@ The output gives leadership a clear picture of where the codebase is now, what t
 - Early warning signals to monitor before they become urgent
 - A clear, prioritised action order written for decision-makers
 - Honest effort estimates in days and weeks — not story points
-- Dev4x contact details for a free follow-up consultation
 
 ## Example Output
 
